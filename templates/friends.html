@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Friends
+{% endblock %}
+
+{% block main %}
+<ul class="list-group">
+    {% for i in total %}
+  <li class="list-group-item bg-transparent text-white border border-white">{{ i["username"] }}</li>
+  <p class="text-light">
+    {% for j in i["jokes"] %}
+      {{ j }}
+      <br>
+    {% endfor%}
+  </p>
+    {% endfor %}
+</ul>
+{% endblock %}

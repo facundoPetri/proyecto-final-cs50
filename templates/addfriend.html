@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Friend
+{% endblock %}
+
+{% block main %}
+    <div class="alert alert-info" role="alert">
+      To add a friend type their name in the following form.
+    </div>
+    <form action="/addfriend" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Name" type="text">
+        </div>
+        <button class="btn btn-light" type="submit">Add</button>
+    </form>
+{% endblock %}

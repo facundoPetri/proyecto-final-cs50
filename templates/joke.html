@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Get a joke
+{% endblock %}
+
+{% block main %}
+    <p class="text-white">
+        {% if joke["type"] == "single" %}
+            {{ joke["joke"]}}
+        {% else %}
+            {{ joke["setup"] }}
+            <br>
+            <button id="mostrar" type="button" class="btn btn-light">Punchline</button>
+            <p class="text-white" id="zapa" style="visibility: hidden;">{{ joke["delivery"] }}</p>
+        {% endif %}
+    </p>
+    <form action="/joke" method="post">
+        <input style="margin-right: 15px;" class="btn btn-light" type="submit" name="submit_button" value="Save joke">
+        <input style="margin-left: 15px;" class="btn btn-light" type="submit" name="submit_button" value="Get another one">
+        <br>
+        <input style="visibility: hidden;" name="id" type="text" value="{{ joke["id"] }}">
+        {% if joke["type"] == "single" %}
+            <input style="visibility: hidden;" name="joketext" type="text" value="{{ joke["joke"] }}">
+        {% else %}
+            <input style="visibility: hidden;" name="joketext" type="text" value="{{ jokeCombined }}">
+        {% endif %}
+    </form>
+    <script>
+        document.querySelector('#mostrar').onclick = function() {
+            if (document.querySelector('#zapa').style.visibility === 'hidden'){
+                document.querySelector('#zapa').style.visibility = 'visible'
+                document.querySelector('#mostrar').style.visibility = 'hidden'
+            }
+        }
+    </script>
+{% endblock %}

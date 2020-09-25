@@ -1,0 +1,52 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(/static/grobold.ttf);
+}
+.we {
+  font-family: myFirstFont;
+}
+nav .navbar-brand {
+  /* size for brand */
+  font-size: xx-large;
+}
+body {
+  background: #0f2027;
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  );
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  );
+}
+main .form-control {
+  /* center form controls */
+  display: inline-block;
+
+  /* override Bootstrap's 100% width for form controls */
+  width: auto;
+}
+
+main {
+  /* scroll horizontally as needed */
+  overflow-x: auto;
+
+  /* center contents */
+  text-align: center;
+}
+
+main img {
+  /* constrain images on small screens */
+  max-width: 100%;
+}
+main table {
+  text-align: left;
+}
+main tfoot {
+  font-weight: bold;
+}

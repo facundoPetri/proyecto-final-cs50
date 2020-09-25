@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<div class="card" style="width: 100%;">
+  <div class="card-header" style="font-weight: bold; font-size: large;">
+    Jokes
+  </div>
+  {% for myJoke in myJokes %}
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ myJoke["joketext"]}}</li>
+      </ul>
+  {% endfor %}
+</div>
+<br>
+    <div class="alert alert-info" role="alert">
+      To eliminate from favorites just pick one in the following form and click eliminate.
+    </div>
+<br>
+    <form action="/" method="post">
+        <div class="form-group">
+            <select class="form-control" name="remove">
+                <option disabled selected value>Select</option>
+                {% for row in myJokes %}
+                <option value="{{ row["joketext"] }}">{{ row["joketext"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button class="btn btn-light" type="submit">Remove</button>
+    </form>
+{% endblock %}
